@@ -6,6 +6,10 @@ It's not even alpha let alone beta, so please exercise patience and report issue
 
 This currently only makes a word cloud using the current note. It removes links, emails, punctuation, and stop words automatically. There currently is no Settings page to adjust this. 
 
+## Get Started
+
+Download to your Obsidian vault using the [BRAT](https://tfthacker.com/BRAT) plugin, which you can do the same way you download and install other Community Plugins. 
+
 ## Features
 
 ### Available Visualizations
@@ -30,3 +34,10 @@ This currently only makes a word cloud using the current note. It removes links,
 ### Obsidian Publish support
 
 Because the visualizations are not made using DataView or a similar plugin that relies on codeblocks, these visualizations are compatible with Obsidian Publish. 
+
+### Privacy
+
+After seeing a forum post about wanting more explicit privacy notices for plugins:
+
+- This plugin does NOT keep any data for any purpose.
+- This plugin DOES distribute your data to QuickChart.io in order to use its data visualization features. Please refer to their privacy policy. 

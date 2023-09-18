@@ -1,11 +1,11 @@
 {
-	"id": "obsidian-quickchart-helper",
-	"name": "Obsidian QuickChart Helper",
-	"version": "0.0.1",
-	"minAppVersion": "0.15.0",
-	"description": "Helps connect to QuickChart.io using note data. Currently only inserts an SVG word cloud at the top of the current note.",
-	"author": "Ira Sanchez",
-	"authorUrl": "https://irasanchez.com",
-	"fundingUrl": "https://irasanchez.com/funding",
-	"isDesktopOnly": false
+    "id": "obsidian-quickchart-helper",
+    "name": "Obsidian QuickChart Helper",
+    "version": "0.0.1",
+    "minAppVersion": "0.15.0",
+    "description": "Helps connect to the QuickChart.io API using note data. Currently only inserts an SVG word cloud at the top of the current note.",
+    "author": "Ira Sanchez",
+    "authorUrl": "https://irasanchez.com",
+    "fundingUrl": "https://irasanchez.com/funding",
+    "isDesktopOnly": false
 }
