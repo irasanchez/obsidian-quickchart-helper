@@ -1,6 +1,7 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 const removeMd = require('remove-markdown');
 const axios = require('axios')
+const fm = require('front-matter')
 // const { removeStopwords, eng, fra } = require('stopword')
 
 
@@ -35,8 +36,9 @@ export default class ObsidianQuickChartHelper extends Plugin {
 			id: 'word-cloud--current-note',
 			name: 'Make a word cloud using this note',
 			editorCallback: async (editor: Editor, view: MarkdownView) => {
-				console.log("cursor", editor.getCursor())
+				// console.log("cursor", editor.getCursor())
 				let { data } = view
+				let frontmatterData = fm(data)
 				let noteWithoutFancySymbols = removeMd(data).replace(/([^.@\s]+)(\.[^.@\s]+)*@([^.@\s]+\.)+([^.@\s]+)/, "").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/·/g, "").replace(/"/g, "").replace(/(\r\n|\n|\r)/gm, "").replace(/\?/g, "").split(" ").join(",")
 				try {
 					const response = await axios.post('https://quickchart.io/wordcloud', {
@@ -46,7 +48,8 @@ export default class ObsidianQuickChartHelper extends Plugin {
 					  useWordList: true,
 					  language: "en"
 					});
-					editor.replaceRange(response.data, {line: 0, ch: 0});
+					console.log({frontmatterData})
+					editor.replaceRange("\n"+response.data+"\n", {line: frontmatterData.bodyBegin, ch: 0});
 				  } catch (error) {
 					new Notice("Sorry, there was a problem making your word cloud! 😢")
 				  }
