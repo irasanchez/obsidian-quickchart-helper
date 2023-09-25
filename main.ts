@@ -18,7 +18,7 @@ export default class ObsidianQuickChartHelper extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
-
+		console.log("LOADING")
 		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
 		const statusBarItemEl = this.addStatusBarItem();
 		statusBarItemEl.setText('Status Bar Text');
@@ -37,9 +37,11 @@ export default class ObsidianQuickChartHelper extends Plugin {
 			name: 'Make a word cloud using this note',
 			editorCallback: async (editor: Editor, view: MarkdownView) => {
 				// console.log("cursor", editor.getCursor())
+				console.log('begin adding word cloud')
 				let { data } = view
 				let frontmatterData = fm(data)
 				let noteWithoutFancySymbols = removeMd(data).replace(/([^.@\s]+)(\.[^.@\s]+)*@([^.@\s]+\.)+([^.@\s]+)/, "").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/·/g, "").replace(/"/g, "").replace(/(\r\n|\n|\r)/gm, "").replace(/\?/g, "").split(" ").join(",")
+				console.log({frontmatterData})
 				try {
 					const response = await axios.post('https://quickchart.io/wordcloud', {
 					  format: 'svg',
@@ -48,12 +50,10 @@ export default class ObsidianQuickChartHelper extends Plugin {
 					  useWordList: true,
 					  language: "en"
 					});
-					console.log({frontmatterData})
-					editor.replaceRange("\n"+response.data+"\n", {line: frontmatterData.bodyBegin, ch: 0});
+					editor.replaceRange("\n"+response.data+"\n", {line: frontmatterData.bodyBegin-1, ch: 0});
 				  } catch (error) {
 					new Notice("Sorry, there was a problem making your word cloud! 😢")
 				  }
-				console.log({noteWithoutFancySymbols})
 			}
 		});
 		// This adds a complex command that can check whether the current state of the app allows execution of the command
