@@ -15,12 +15,10 @@ Download to your Obsidian vault using the [BRAT](https://tfthacker.com/BRAT) plu
 ### Available Visualizations
 
 - Word clouds
-- More visualizations coming soon...
 
 ### Language Support
 
 - English
-- More languages coming soon...
 
 ### Commands
 
@@ -41,3 +39,12 @@ After seeing a forum post about wanting more explicit privacy notices for plugin
 
 - This plugin does NOT keep any data for any purpose.
 - This plugin DOES distribute your data to QuickChart.io in order to use its data visualization features. Please refer to their privacy policy. 
+
+## Roadmap
+- [ ] Insert after frontmatter when inserting at the top of the file.
+- [ ] Command to insert at the cursor instead of the top of the file
+- [ ] Setting to include or remove built-in stop words
+- [ ] Setting to add your own stop words
+- [ ] Add languages other than English (which ones I can figure out TBD)
+- [ ] Setting to put SVG in its own file and embed in the current note
+- [ ] Setting to save image as a png instead of an SVG
