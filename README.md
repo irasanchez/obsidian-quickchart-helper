@@ -1,5 +1,9 @@
 # Obsidian QuickChart Helper
 
+---
+
+![Obsidian](https://img.shields.io/badge/Obsidian-%23483699.svg?style=for-the-badge&logo=obsidian&logoColor=white ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
 This is a tool I am making to make it easier to put data visualizations in my notes, using data from my notes. It uses the QuickChart API to generate an svg or png to insert into the note. 
 
 It's not even alpha let alone beta, so please exercise patience and report issues if you choose to install this now. 
